@@ -1,9 +1,10 @@
 import React from "react";
+import LoginPage from "./Pages/LoginPage/LoginPage";
 
 const App = () => {
   return (
     <>
-      <h1>THis is new Updatesssssss deep here</h1>
+    <LoginPage />
     </>
   );
 };
