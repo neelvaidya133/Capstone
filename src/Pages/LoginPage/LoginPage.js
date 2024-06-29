@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./LoginPage.css";
 import loginImage from "../../Assets/login.svg";
 
@@ -21,7 +22,7 @@ const LoginPage = () => {
               <button type="submit">Login</button>
             </form>
             <div class="signup-text">
-              Or, Don't have an account? <a href=" ">Sign Up Now!!</a>
+              Or, Don't have an account? <Link to="/signup">Sign Up Now!!</Link>
             </div>
           </div>
       </div>
