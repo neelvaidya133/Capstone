@@ -1,44 +1,44 @@
-.content {
+.signup-content {
   display: flex;
   background-color: #b5d3ef;
-  padding: 30px;
+  padding: 20px;
 }
 
-.left-part {
+.signup-left-part {
   display: flex;
   align-items: center;
   margin-left: 40px;
-  margin-right: 120px; 
+  margin-right: 100px; 
 }
 
-.right-part {
-  margin-left: 120px;
+.signup-right-part {
+  margin-left: 100px;
   background-color: #fffafa;
   border-radius: 10px;
-  padding: 40px;
+  padding: 30px;
 }
 
-.right-part form {
+.signup-right-part form {
   display: flex;
   flex-direction: column;
 }
 
-.right-part label {
-  margin-bottom: 10px;
+.signup-right-part label {
+  margin-bottom: 5px;
   font-weight: 600;
 }
 
-.right-part input {
-  margin-bottom: 20px;
+.signup-right-part input {
+  margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
 }
 
-.right-part button {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.signup-right-part button {
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 10px;
   background-color: #007bff;
   color: #fff;
@@ -48,20 +48,20 @@
   cursor: pointer;
 }
 
-.right-part button:hover {
+.signup-right-part button:hover {
   background-color: #0056b3;
 }
 
-.login-text {
-  margin-top: 10px;
+.signup-login-text {
+  margin-top: 5px;
   font-size: 16px;
 }
 
-.login-text a {
+.signup-login-text a {
   color: #007bff;
   text-decoration: none;
 }
 
-.login-text a:hover {
+.signup-login-text a:hover {
   color: #0056b3;
 }

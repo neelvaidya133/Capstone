@@ -5,11 +5,11 @@ import SignupImage from "../../Assets/login.svg";
 
 const Signup = () => {
   return (
-    <div className="content">
-        <div className="left-part">
-          <img src={SignupImage} alt="signup" width={450} height={450} />
+    <div className="signup-content">
+        <div className="signup-left-part">
+          <img src={SignupImage} alt="signup" width={400} height={400} />
         </div>
-        <div className="right-part">
+        <div className="signup-right-part">
           <h2>Sign Up</h2>
           <form>
             <label for="name">Name</label>
@@ -29,7 +29,7 @@ const Signup = () => {
 
             <button type="submit">Sign Up</button>
           </form>
-          <div className="login-text">
+          <div className="signup-login-text">
             Or, Already have an account? <Link to="/login">Log In Now!!</Link>
           </div>
         </div>

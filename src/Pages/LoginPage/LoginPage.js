@@ -5,11 +5,11 @@ import loginImage from "../../Assets/login.svg";
 
 const LoginPage = () => {
   return (
-      <div className="content">
-          <div class="left-part">
-            <img src={loginImage} alt="login" />
+      <div className="login-content">
+          <div class="login-left-part">
+            <img src={loginImage} alt="login" width={400} height={400} />
           </div>
-          <div class="right-part">
+          <div class="login-right-part">
             <h1>Welcome to Tailor's Data</h1>
             <h2>Log In</h2>
             <form>
@@ -21,7 +21,7 @@ const LoginPage = () => {
 
               <button type="submit">Login</button>
             </form>
-            <div class="signup-text">
+            <div class="login-signup-text">
               Or, Don't have an account? <Link to="/signup">Sign Up Now!!</Link>
             </div>
           </div>
@@ -30,6 +30,5 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
 
 // Reference for login.svg, it is taken & downloaded from https://undraw.co/illustrations & https://undraw.co/search
