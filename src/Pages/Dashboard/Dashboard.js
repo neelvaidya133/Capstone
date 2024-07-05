@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
 import CustomerTable from "../../components/CustomerTable/CustomerTable";
-
+import OrderTable from "../../components/OrderTable/OrderTable";
 const Dashboard = () => {
   const [activeMenu, setActiveMenu] = useState("");
   const [activeSubmenu, setActiveSubmenu] = useState("");
@@ -71,12 +71,12 @@ const Dashboard = () => {
             <li onClick={() => handleSubmenuClick("prices")}>Prices</li>
           </ul>
         </nav>
-        {/* {tableContent === "orders" && (
+        {tableContent === "orders" && (
           <OrderTable tableContent={tableContent} handleClick={handleClick} />
-        )} */}
+        )}
 
         {tableContent === "Customers" && (
-          <CustomerTable tableContent={tableContent} data={data} />
+          <CustomerTable tableContent={tableContent} />
         )}
       </div>
     </div>

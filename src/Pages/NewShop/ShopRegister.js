@@ -1,7 +1,8 @@
 import React from "react";
 import "./ShopRegister.css";
 const ShopRegister = () => {
-  const hasCompany = "abc"
+  const hasCompany = null; // setting hasCompany to null for testing purposes to check Regsitration form
+  // set hasCompany to true if the user has already registered a shop //////
 
   if (hasCompany) {
     return (
