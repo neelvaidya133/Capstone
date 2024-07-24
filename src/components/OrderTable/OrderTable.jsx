@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./OrderTable.css";
+import Drawer from "../Drawer/Drawer";
 
 // Defining the OrderTable function component & also, receiving the props as an argument
 const OrderTable = (props) => {
   // Using the useState hook, creating a state variables "selectedOrder" & "detailsDrawer" along with their setter functions and setting their initial values
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [detailsDrawer, setDetailsDrawer] = useState(false);
+  const [newOrderDrawer, setNewOrderDrawer] = useState(false);
+
   
   // Defining the "handleClick" function, which will be called when the user clicks on the pending order
   const handleClick = (e, id) => {
@@ -60,11 +63,17 @@ const OrderTable = (props) => {
       orderStatus: "pending",
     },
   ];
+
+
+  const handleNewOrder = () =>{
+    setNewOrderDrawer(true)
+  }
   return (
     // Content of the OrderTable component
+    <>
     <div className="ordertable-content">
       {/* Button to add new order for the customer */}
-      <button className="ordertable-addorder">Add Order</button>
+      <button className="ordertable-addorder" onClick={handleNewOrder}>Add Order</button>
 
       {/* Table which will show all the orders */}
       <table>
@@ -117,6 +126,34 @@ const OrderTable = (props) => {
         </tbody>
       </table>
     </div>
+    <Drawer isOpen={newOrderDrawer} onClose={()=> setNewOrderDrawer(false)}>
+    <div>
+            <h3>Add New Order</h3>
+            <form>
+              <label>First Name:</label>
+              <input type="text" />
+              <label>Last Name:</label>
+              <input type="text" />
+              <label>Delivery Date:</label>
+              <input type="date" />
+              <label>Total Count:</label>
+              <input type="number" />
+              <label>Total Amount:</label>
+              <input type="number" />
+              <label>Order Status:</label>
+              <select>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+              </select>
+              <button>Add</button>
+            </form>
+          </div>
+
+
+
+
+    </Drawer>
+    </>
   );
 };
 
