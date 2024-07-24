@@ -1,8 +1,12 @@
 import React from "react";
 import "./ShopRegister.css";
 const ShopRegister = () => {
-  // variable to see if the user has a exsiting shop
-  const hasCompany = "abc"
+
+
+
+  const hasCompany = null; // setting hasCompany to null for testing purposes to check Regsitration form
+  // set hasCompany to true if the user has already registered a shop //////
+
 
   // code when the user has a shop or has alrerady registered
   if (hasCompany) {
