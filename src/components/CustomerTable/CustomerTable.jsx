@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CustomerTable.css";
+import Drawer from "../Drawer/Drawer";
 
 const CustomerTable = (props) => {
+
+  const [newCustomerDrawer, setNewCustomerDrawer] = useState(false);
+
+const handleNewCustomerDrawer =()=>{
+  setNewCustomerDrawer(true)
+}
   const handleMeasurement = (id) => {
     console.log(`Viewing measurements for customer ID: ${id}`);
   };
@@ -35,7 +42,7 @@ const CustomerTable = (props) => {
   return (
     <>
       <main style={{padding: '10px 30px'}}>
-        <button style={{margin: '20px 0',
+        <button onClick={handleNewCustomerDrawer} style={{margin: '20px 0',
     padding: '10px',
     backgroundColor: '#007bff',
     color: '#fff',
@@ -83,6 +90,29 @@ const CustomerTable = (props) => {
             ))}
           </tbody>
         </table>
+        <div>
+        <Drawer
+          isOpen={newCustomerDrawer}
+          onClose={() => setNewCustomerDrawer(false)}
+        >
+          <div>
+            <h3>Add New Customer</h3>
+            <form>
+              <label>First Name:</label>
+              <input type="text" />
+              <label>Last Name:</label>
+              <input type="text" />
+              <label>Address:</label>
+              <input type="text" />
+              <label>Phone:</label>
+              <input type="text" />
+              <label>Email:</label>
+              <input type="text" />
+              <button>Add</button>
+            </form>
+          </div>
+        </Drawer>
+        </div>
       </main>
     </>
   );

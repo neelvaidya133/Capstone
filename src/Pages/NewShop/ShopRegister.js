@@ -1,8 +1,10 @@
 import React from "react";
 import "./ShopRegister.css";
 const ShopRegister = () => {
+  // variable to see if the user has a exsiting shop
   const hasCompany = "abc"
 
+  // code when the user has a shop or has alrerady registered
   if (hasCompany) {
     return (
       <div className="newshop-container">
@@ -25,6 +27,8 @@ const ShopRegister = () => {
     );
   }
 
+
+  // if the user does have a shop this is the page user gets 
   return (
     <div className="shopregister-container">
       <div className="shopregister-head">
@@ -46,4 +50,6 @@ const ShopRegister = () => {
   );
 };
 
+
+// export for shopregister component
 export default ShopRegister;
