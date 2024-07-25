@@ -55,7 +55,8 @@ const Signup = () => {
       signupFormErrors["mobile"] = "Please enter your Mobile Number";
     } else if (!/^\d{10}$/.test(mobile)) {
       isValid = false;
-      signupFormErrors["mobile"] = "Please enter a valid 10-digit Mobile Number";
+      signupFormErrors["mobile"] =
+        "Please enter a valid 10-digit Mobile Number";
     }
 
     setErrors(signupFormErrors);
@@ -67,18 +68,18 @@ const Signup = () => {
     event.preventDefault();
     // If form is valid, then redirect to the Login page
     if (validateForm()) {
-      navigate("/login");
+      navigate("/");
     }
   };
 
   return (
     <div className="signup-content">
-        <div className="signup-left-part">
-          <img src={SignupImage} alt="signup" width={400} height={400} />
-        </div>
-        <div className="signup-right-part">
-          <h2>Sign Up</h2>
-          <form onSubmit={handleSubmit}>
+      <div className="signup-left-part">
+        <img src={SignupImage} alt="signup" width={400} height={400} />
+      </div>
+      <div className="signup-right-part">
+        <h2>Sign Up</h2>
+        <form onSubmit={handleSubmit}>
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your full name" value={name}
             onChange={(e) => setName(e.target.value)} // Updating the name state with the help of onChange 
@@ -119,9 +120,9 @@ const Signup = () => {
             <button type="submit">Sign Up</button>
           </form>
           <div className="signup-login-text">
-            Or, Already have an account? <Link to="/login">Log In Now!!</Link>
+            Or, Already have an account? <Link to="/">Log In Now!!</Link>
           </div>
-        </div>
+      </div>
     </div>
   );
 };
