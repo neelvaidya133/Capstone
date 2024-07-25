@@ -60,11 +60,20 @@
   table {
     width: 100%;
     border-collapse: collapse;
+    border: none;
   }
   
   th, td {
-    padding: 0.5rem;
-    border: 1px solid #ddd;
+    padding: 1rem;
+    border: none;
     text-align: left;
   }
   
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

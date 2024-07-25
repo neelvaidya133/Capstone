@@ -2,7 +2,7 @@
 import React, { Children, useEffect, useRef } from "react";
 import "./Drawer.css";
 
-const Drawer = ({ isOpen, onClose, id, Children }) => {
+const Drawer = ({ isOpen, onClose, id, children }) => {
   const drawerRef = useRef();
 
   const handleClickOutside = (event) => {
@@ -29,12 +29,7 @@ const Drawer = ({ isOpen, onClose, id, Children }) => {
       id={`drawer-${id}`}
       ref={drawerRef}
     >
-      <div className="drawer-content">
-        <button className="close-button" onClick={onClose}>
-          &times;
-        </button>
-        {Children}
-      </div>
+      <div className="drawer-content">{children}</div>
     </div>
   );
 };

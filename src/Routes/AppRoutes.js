@@ -11,6 +11,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       {/* This is our Starting Page */}
+
       <Route path="/" element={<LoginPage />} />
       <Route path="/signup" element={<Signup />} />
       <Route element={<PrivateRoute />}>
