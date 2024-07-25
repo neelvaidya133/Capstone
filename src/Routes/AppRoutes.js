@@ -1,14 +1,23 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+// import LoginPage from "../Pages/LoginPage/LoginPage";
+import Signup from "../Pages/SignUp/Signup";
+import ShopRegister from "../Pages/NewShop/ShopRegister";
 import Dashboard from "../Pages/Dashboard/Dashboard";
-import ShopRegister from "../Pages/NewShop/ShopRegister"
+import PrivateRoute from "./PrivateRoute";
+import LoginPage from "../Pages/LoginPage/LoginPage";
 
 const AppRoutes = () => {
   return (
     <Routes>
       {/* This is our Starting Page */}
-      <Route path="/" element= {< Dashboard />} />
-      <Route path="registershop" element={<ShopRegister />} />
+
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route element={<PrivateRoute />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/registerShop" element={<ShopRegister />} />
+      </Route>
     </Routes>
   );
 };
