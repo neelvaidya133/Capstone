@@ -23,28 +23,21 @@ const OrderTable = (props) => {
 
   const [createNewOrder] = useMutation(CREATE_ORDER, {
     onCompleted: (data) => {
-      console.log(data);
       setNewOrderDrawer(false);
     },
-    onError: (error) => {
-      console.log(error);
-    },
+    onError: (error) => {},
   });
 
   const handleClick = (e, id) => {
     e.preventDefault();
-    console.log(`Completing order with ID: ${id}`);
     // Handle order completion logic here
   };
 
   const data = props.tableData;
-  console.log("data", data);
   const handleNewOrder = () => {
     setNewOrderDrawer(true);
   };
   const handleChange = (e) => {
-    console.log(e.target.value);
-    console.log(e.target.name);
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -66,7 +59,6 @@ const OrderTable = (props) => {
       orderStatus: "pending",
       createdAt: new Date().toLocaleDateString(),
     };
-    console.log(newOrderData);
     createNewOrder({
       variables: {
         order: newOrderData,
@@ -114,7 +106,6 @@ const OrderTable = (props) => {
                         transition: "color 0.3s",
                       }}
                       onClick={() => {
-                        console.log("record", record.id);
                         setSelectedOrder(record);
                         setDetailsDrawer(true);
                       }}

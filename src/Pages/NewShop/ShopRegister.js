@@ -14,7 +14,6 @@ const ShopRegister = () => {
 
   const handleSelect = (e) => {
     const selected = parseInt(e.target.value);
-    console.log("selected", selected);
     setShopId(selected);
   };
 
@@ -33,9 +32,7 @@ const ShopRegister = () => {
       companyData.find((company) => company.id === shopId).companyAddress
     );
   };
-  console.log("hasCompany", hasCompany);
   if (hasCompany) {
-    console.log("companyData", companyData);
     return (
       <div className="newshop-container">
         <div className="newshop-head">
@@ -43,7 +40,7 @@ const ShopRegister = () => {
         </div>
 
         <div className="newshop-registerform">
-          <label for="shopname">Select shop</label>
+          <label htmlFor="shopname">Select shop</label>
           <select
             id="shopname"
             name="shopname"
@@ -52,16 +49,11 @@ const ShopRegister = () => {
           >
             <option value="">Select Shop</option>
 
-            {companyData.map(
-              (company) => (
-                console.log("company", company),
-                (
-                  <option key={company.id} value={company.id}>
-                    {company.companyName}
-                  </option>
-                )
-              )
-            )}
+            {companyData.map((company) => (
+              <option key={company.id} value={company.id}>
+                {company.companyName}
+              </option>
+            ))}
           </select>
 
           <button type="submit" onClick={handleContinue}>
@@ -79,11 +71,11 @@ const ShopRegister = () => {
       </div>
 
       <div className="shop-registerform">
-        <label for="shopname">Shop Name</label>
+        <label htmlFor="shopname">Shop Name</label>
 
         <input type="text" id="shopname" name="shopname" required />
 
-        <label for="Shop Address">Shop Address</label>
+        <label htmlFor="Shop Address">Shop Address</label>
 
         <input type="text" id="shopaddress" name="shopaddress" required />
 

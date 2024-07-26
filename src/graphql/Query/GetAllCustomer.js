@@ -30,7 +30,6 @@ const GetCustomerByCompanyId = (id) => {
   if (error) return <p>Error :(</p>;
 
   const customers = data?.companyById?.customersByCompanyId?.nodes;
-  console.log("customers", customers);
 
   return { customers, loading, error };
 };

@@ -31,21 +31,13 @@ const CustomerMeasurements = ({ customerId, clothType: initialClothType }) => {
   });
 
   const [newMeasurement] = useMutation(CREATE_CUSTOMER_MEASUREMENT, {
-    onCompleted: (data) => {
-      console.log("data", data);
-    },
-    onError: (error) => {
-      console.log("error", error);
-    },
+    onCompleted: (data) => {},
+    onError: (error) => {},
   });
 
   const [updateCustomerMeasurement] = useMutation(UPDATE_CUSTOMER_MEASUREMENT, {
-    onCompleted: (data) => {
-      console.log("data", data);
-    },
-    onError: (error) => {
-      console.log("error", error);
-    },
+    onCompleted: (data) => {},
+    onError: (error) => {},
   });
 
   const { measurements, loading, error } =

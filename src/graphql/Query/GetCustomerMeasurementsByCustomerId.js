@@ -23,7 +23,6 @@ const GetCustomerMeasurementsByCustomerId = (customerId) => {
   if (error) return <p>Error :(</p>;
 
   const measurements = data?.customerMeasurmentByCustomerId;
-  console.log("measurements", measurements);
 
   return { measurements, loading, error };
 };

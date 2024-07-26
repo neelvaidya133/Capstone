@@ -44,7 +44,6 @@ const GetAllOrders = (id) => {
   const completedOrders = allOrders.filter(
     (order) => order.orderStatus === "Completed"
   );
-  console.log("orders", allOrders);
 
   return { allOrders, pendingOrders, completedOrders, loading, error };
 };

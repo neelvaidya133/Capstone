@@ -21,12 +21,9 @@ const CustomerTable = (props) => {
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [newCustomer] = useMutation(CREATE_NEW_CUSTOMER, {
     onCompleted: (data) => {
-      console.log(data);
       setNewCustomerDrawer(false);
     },
-    onError: (error) => {
-      console.log(error);
-    },
+    onError: (error) => {},
   });
   const handleMeasurement = (id) => {
     setSelectedCustomer(id);

@@ -26,7 +26,6 @@ const GetPrices = (id) => {
   if (error) return <p>Error :(</p>;
 
   const prices = data?.companyById?.priceByCompanyId;
-  console.log("pricesttttttt", prices);
 
   return { prices, loading, error };
 };
