@@ -1,64 +1,62 @@
-.login-container {
-    display:  flex;
+.signup-container {
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100%;
-
-
-.login-content {
-  display: flex;
-  background-color: #b5d3ef;
-  padding: 20px;
-}
-
-.login-wrapper {
+    background-color: #f8f9fa;
+  }
+  .signup-wrapper {
     display: flex;
     width: 80%;
     max-width: 900px;
-    height: 500px;
+    height: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
     flex-direction: row;
     column-gap: 40px;
+    ;
   }
   
-  .login-left-side {
+  .singup-left-side {
     flex: 1;
+    background-size: cover;
+    background-position: center;
   }
 
-  .login-left-side img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+    .singup-left-side img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
   
-  .login-right-side {
+  .singup-right-side {
     flex: 1;
     padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    border: 1px solid #ccc;
   }
   
-  .login-right-side h2 {
+  .singup-right-side h2 {
     margin-bottom: 20px;
     font-size: 24px;
   }
   
-  .login-right-side form {
+  .singup-right-side form {
     display: flex;
     flex-direction: column;
   }
   
-  .login-right-side label {
+  .singup-right-side label {
     margin-bottom: 5px;
     font-weight: bold;
   }
   
-  .login-right-side input {
+  .singup-right-side input {
     margin-bottom: 15px;
     padding: 10px;
     font-size: 16px;
@@ -66,7 +64,7 @@
     border-radius: 4px;
   }
   
-  .login-right-side button {
+  .singup-right-side button {
     padding: 10px;
     font-size: 16px;
     background-color: #007bff;
@@ -76,21 +74,21 @@
     cursor: pointer;
   }
   
-  .login-right-side button:hover {
+  .singup-right-side button:hover {
     background-color: #0056b3;
   }
   
-  .login-sign-up-text {
+  .singup-switch-text {
     margin-top: 10px;
     font-size: 14px;
   }
   
-  .login-sign-up-text a {
+  .singup-switch-text a {
     color: #007bff;
     text-decoration: none;
   }
   
-  .login-sign-up-text a:hover {
+  .singup-switch-text a:hover {
     text-decoration: underline;
   }
   

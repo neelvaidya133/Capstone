@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ShopRegister.css";
 import Cookies from "js-cookie";
+<<<<<<< HEAD
 
 import GetCompanyData from "../../graphql/Query/GetCompany";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +10,15 @@ const ShopRegister = () => {
   const navigate = useNavigate();
   const [shopId, setShopId] = useState(null);
 
+=======
+import GetCompanyData from "../../graphql/Query/GetCompany";
+import { useNavigate } from "react-router-dom";
+import GetPrices from "../../graphql/Query/GetPrices";
+const ShopRegister = () => {
+  const navigate = useNavigate();
+  const [shopId, setShopId] = useState(null);
+
+>>>>>>> 01e2c522f2742fd24d9b8a415291cbe0dbc393f5
   const { hasCompany, companyData, loading, error } = GetCompanyData();
   const { prices, Priceloading, Priceerror } = GetPrices(shopId);
 
@@ -62,6 +72,20 @@ const ShopRegister = () => {
                 )
               )
             )}
+<<<<<<< HEAD
+=======
+
+          </select>
+
+          <button type="submit" onClick={handleContinue}>
+            Continue
+          </button>
+          <select id="shopname" name="shopname" required>
+            <option value="shop1">Shop 1</option>
+            <option value="shop2">Shop 2</option>
+            <option value="shop3">Shop 3</option>
+            <option value="shop4">Shop 4</option>
+>>>>>>> 01e2c522f2742fd24d9b8a415291cbe0dbc393f5
           </select>
 
           <button type="submit" onClick={handleContinue}>

@@ -31,4 +31,8 @@ app.listen(process.env.PORT, () => {
   console.log(
     `Server is running on http://localhost:${process.env.PORT}/graphql`
   );
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 01e2c522f2742fd24d9b8a415291cbe0dbc393f5
