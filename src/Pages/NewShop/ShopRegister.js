@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./ShopRegister.css";
 import Cookies from "js-cookie";
-
 import GetCompanyData from "../../graphql/Query/GetCompany";
 import { useNavigate } from "react-router-dom";
 import GetPrices from "../../graphql/Query/GetPrices";
@@ -36,11 +35,6 @@ const ShopRegister = () => {
   console.log("hasCompany", hasCompany);
   if (hasCompany) {
     console.log("companyData", companyData);
-import React from "react";
-import "./ShopRegister.css";
-const ShopRegister = () => {
-
-  if (hasCompany) {
     return (
       <div className="newshop-container">
         <div className="newshop-head">
@@ -67,6 +61,7 @@ const ShopRegister = () => {
                 )
               )
             )}
+
           </select>
 
           <button type="submit" onClick={handleContinue}>
@@ -79,7 +74,9 @@ const ShopRegister = () => {
             <option value="shop4">Shop 4</option>
           </select>
 
-          <button type="submit">Continue</button>
+          <button type="submit" onClick={handleContinue}>
+            Continue
+          </button>
         </div>
       </div>
     );

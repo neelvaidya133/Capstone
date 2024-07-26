@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Drawer from "../Drawer/Drawer";
-import CustomerMeasurements from "../CustomerMeasurments/CustomerMeasurements";
 import { useMutation } from "@apollo/client";
+import { CREATE_NEW_CUSTOMER } from "../../graphql/Mutation/NewCustomer";
 import Cookies from "js-cookie";
 import { GET_CustomerByCompanyId } from "../../graphql/Query/GetAllCustomer";
+import CustomerMeasurements from "../CustomerMeasurments/CustomerMeasurements";
 const CustomerTable = (props) => {
   const [customer, setCustomer] = useState({
     firstName: "",
@@ -101,92 +102,188 @@ const CustomerTable = (props) => {
         </Drawer>
       </div>
 
-import React from "react";
-import "./CustomerTable.css";
-
 const CustomerTable = (props) => {
-  const handleMeasurement = (id) => {
-    console.log(`Viewing measurements for customer ID: ${id}`);
+  const [customer, setCustomer] = useState({
+    firstName: "",
+    lastName: "",
+    address: "",
+    phone: "",
+    email: "",
+  });
+  const companyId = parseInt(Cookies.get("shopId"));
+  const [newCustomerDrawer, setNewCustomerDrawer] = useState(false);
+  const [customerMeasurementDrawer, setCustomerMeasurementDrawer] =
+    useState(false);
+  const customersData = props.tableData;
+  const [selectedCustomer, setSelectedCustomer] = useState(null);
+  const [newCustomer] = useMutation(CREATE_NEW_CUSTOMER, {
+    onCompleted: (data) => {
+      console.log(data);
+      setNewCustomerDrawer(false);
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+
+
+  const handleNewCustomer = () => {
+    setNewCustomerDrawer(true);
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCustomer((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleAddCustomer = (e) => {
+    e.preventDefault();
+    newCustomer({
+      variables: {
+        firstName: customer.firstName,
+        lastName: customer.lastName,
+        address: customer.address,
+        phone: customer.phone,
+        email: customer.email,
+        companyId: companyId,
+      },
+      refetchQueries: [
+        {
+          query: GET_CustomerByCompanyId,
+          variables: { id: companyId },
+        },
+      ],
+    });
+    setCustomer({
+      firstName: "",
+      lastName: "",
+      address: "",
+      phone: "",
+      email: "",
+    });
   };
 
-  const customersData = [
-    {
-      id: 1,
-      firstName: "Neel",
-      lastName: "Vaidya",
-      address: "299 Doon Valley",
-      phone: "587-989-6524",
-      email: "neelvaidya@conestogsc.on.ca",
-    },
-    {
-      id: 2,
-      firstName: "Viren",
-      lastName: "Owhal",
-      address: "275 larch St",
-      phone: "778-962-1257",
-      email: "vowhal@conestogac.on.ca",
-    },
-    {
-      id: 3,
-      firstName: "Deep",
-      lastName: "B",
-      address: "1121 Kitchener",
-      phone: "554-785-6627",
-      email: "deep@conestogac.on.ca",
-    },
-  ];
   return (
     <>
-      <main style={{padding: '10px 30px'}}>
-        <button style={{margin: '20px 0',
-    padding: '10px',
-    backgroundColor: '#007bff',
-    color: '#fff',
-    fontSize: '16px',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',}}
-    > Add Customer</button>
-        <table>
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Address</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>Measurements</th>
-            </tr>
-          </thead>
-          <tbody>
-            {customersData.map((record) => (
-              <tr key={record.id}>
-                <td>{record.firstName}</td>
-                <td>{record.lastName}</td>
-                <td>{record.address}</td>
-                <td>{record.phone}</td>
-                <td>{record.email}</td>
-                <td>
-                  <button
-                    style={{
-                      backgroundColor: "transparent",
-                      color: "#1677ff",
-                      border: "none",
-                      cursor: "pointer",
-                      transition: "color 0.3s",
-                    }}
-                    onClick={() => {
-                      handleMeasurement(record.id);
-                    }}
-                  >
-                    Details
-                  </button>
-                </td>
+      <main className="content">
+        <button onClick={handleNewCustomer}> Add Customer</button>
+        {customersData && (
+          <table>
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Measurements</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {customersData.map((record) => (
+                <tr key={record.id}>
+                  <td>{record.firstName}</td>
+                  <td>{record.lastName}</td>
+                  <td>{record.address}</td>
+                  <td>{record.phone}</td>
+                  <td>{record.email}</td>
+                  <td>
+                    <button
+                      style={{
+                        backgroundColor: "transparent",
+                        color: "#1677ff",
+                        border: "none",
+                        cursor: "pointer",
+                        transition: "color 0.3s",
+                      }}
+                      onClick={() => {
+                       console.log("measure")
+                      }}
+                    >
+                      Details
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </main>
+      <div>
+        <Drawer
+          isOpen={newCustomerDrawer}
+          onClose={() => setNewCustomerDrawer(false)}
+        >
+          <div>
+            <h3>Add New Customer</h3>
+            <form onSubmit={handleAddCustomer}>
+              <div className="form-item">
+                <label htmlFor="firstName">First Name:</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={customer.firstName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-item">
+                <label htmlFor="lastName">Last Name:</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={customer.lastName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-item">
+                <label htmlFor="address">Address:</label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  value={customer.address}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-item">
+                <label htmlFor="phone">Phone:</label>
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  value={customer.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-item">
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={customer.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <button type="submit" className="form-button">
+                Add
+              </button>
+            </form>
+          </div>
+        </Drawer>
+      </div>
+
+      <div>
+       
+      </div>
     </>
   );
 };
