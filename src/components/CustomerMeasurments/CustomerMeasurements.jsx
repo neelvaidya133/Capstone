@@ -141,6 +141,7 @@ const CustomerMeasurements = ({ customerId, clothType: initialClothType }) => {
 
   return (
     <>
+      <span className="close">&times;</span>
       <Segmented
         options={["Shirt", "Pant", "Sherwani", "Suit", "Coat"]}
         onChange={(value) => setClothType(value.toLowerCase())}

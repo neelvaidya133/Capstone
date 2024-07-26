@@ -1,42 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Signup.css";
 import SignupImage from "../../Assets/login.svg";
 
 const Signup = () => {
   return (
-    <div className="signup-content">
-        <div className="signup-left-part">
-          <img src={SignupImage} alt="signup" width={400} height={400} />
+    <div className="signup-container">
+      <div className="signup-wrapper">
+        <div className="signup-left-side">
+          <img src={SignupImage} alt="signup" />
         </div>
-        <div className="signup-right-part">
+        <div className="signup-right-side">
           <h2>Sign Up</h2>
           <form>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name" name="name" required />
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" name="email" required />
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+            <label htmlFor="password">Password</label>
+            <input type="password" id="password" name="password" required />
 
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Enter your password again" required />
+            <label htmlFor="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              required
+            />
 
-            <label for="mobile">Mobile Number</label>
-            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required />
+            <label htmlFor="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" required />
 
             <button type="submit">Sign Up</button>
           </form>
-          <div className="signup-login-text">
-            Or, Already have an account? <Link to="/login">Log In Now!!</Link>
+          <div className="singup-switch-text">
+            Already have an account? <a href="/">Login here</a>
           </div>
         </div>
+      </div>
     </div>
   );
 };
 
 export default Signup;
-
-// Reference for login.svg, it is taken & downloaded from https://undraw.co/illustrations & https://undraw.co/search

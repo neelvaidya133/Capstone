@@ -1,11 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+// import LoginPage from "../Pages/LoginPage/LoginPage";
 import Signup from "../Pages/SignUp/Signup";
-import ShopRegister from "../Pages/NewShop/ShopRegister";
-import Dashboard from "../Pages/Dashboard/Dashboard";
-import PrivateRoute from "./PrivateRoute";
-import LoginPage from "../Pages/LoginPage/LoginPage";
-import Dashboard from "../Pages/Dashboard/Dashboard";
 import ShopRegister from "../Pages/NewShop/ShopRegister";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
@@ -22,10 +18,8 @@ const AppRoutes = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/registerShop" element={<ShopRegister />} />
       </Route>
-
     </Routes>
   );
 };
 
 export default AppRoutes;
-
