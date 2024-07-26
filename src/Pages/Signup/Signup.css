@@ -1,67 +1,94 @@
-.signup-content {
-  display: flex;
-  background-color: #b5d3ef;
-  padding: 20px;
-}
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+  }
+  .signup-wrapper {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    height: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-direction: row;
+    column-gap: 40px;
+    ;
+  }
+  
+  .singup-left-side {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+  }
 
-.signup-left-part {
-  display: flex;
-  align-items: center;
-  margin-left: 40px;
-  margin-right: 100px; 
-}
+    .singup-left-side img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+  
+  .singup-right-side {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-.signup-right-part {
-  margin-left: 100px;
-  background-color: #fffafa;
-  border-radius: 10px;
-  padding: 30px;
-}
-
-.signup-right-part form {
-  display: flex;
-  flex-direction: column;
-}
-
-.signup-right-part label {
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-
-.signup-right-part input {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.signup-right-part button {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.signup-right-part button:hover {
-  background-color: #0056b3;
-}
-
-.signup-login-text {
-  margin-top: 5px;
-  font-size: 16px;
-}
-
-.signup-login-text a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.signup-login-text a:hover {
-  color: #0056b3;
-}
+    border: 1px solid #ccc;
+  }
+  
+  .singup-right-side h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .singup-right-side form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .singup-right-side label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .singup-right-side input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .singup-right-side button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .singup-right-side button:hover {
+    background-color: #0056b3;
+  }
+  
+  .singup-switch-text {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .singup-switch-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .singup-switch-text a:hover {
+    text-decoration: underline;
+  }
+  
