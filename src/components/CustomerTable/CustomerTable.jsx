@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Drawer from "../Drawer/Drawer";
 import CustomerMeasurements from "../CustomerMeasurments/CustomerMeasurements";
 import { useMutation } from "@apollo/client";
+import { CREATE_NEW_CUSTOMER } from "../../graphql/Mutation/NewCustomer";
 import Cookies from "js-cookie";
 import { GET_CustomerByCompanyId } from "../../graphql/Query/GetAllCustomer";
 const CustomerTable = (props) => {
@@ -18,7 +19,15 @@ const CustomerTable = (props) => {
     useState(false);
   const customersData = props.tableData;
   const [selectedCustomer, setSelectedCustomer] = useState(null);
-
+  const [newCustomer] = useMutation(CREATE_NEW_CUSTOMER, {
+    onCompleted: (data) => {
+      console.log(data);
+      setNewCustomerDrawer(false);
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
   const handleMeasurement = (id) => {
     setSelectedCustomer(id);
     setCustomerMeasurementDrawer(true);
@@ -36,7 +45,29 @@ const CustomerTable = (props) => {
   };
   const handleAddCustomer = (e) => {
     e.preventDefault();
-    console.log("customer", customer);
+    newCustomer({
+      variables: {
+        firstName: customer.firstName,
+        lastName: customer.lastName,
+        address: customer.address,
+        phone: customer.phone,
+        email: customer.email,
+        companyId: companyId,
+      },
+      refetchQueries: [
+        {
+          query: GET_CustomerByCompanyId,
+          variables: { id: companyId },
+        },
+      ],
+    });
+    setCustomer({
+      firstName: "",
+      lastName: "",
+      address: "",
+      phone: "",
+      email: "",
+    });
   };
 
   return (
@@ -85,7 +116,76 @@ const CustomerTable = (props) => {
           </table>
         )}
       </main>
-      <div></div>
+      <div>
+        <Drawer
+          isOpen={newCustomerDrawer}
+          onClose={() => setNewCustomerDrawer(false)}
+        >
+          <div>
+            <h3>Add New Customer</h3>
+            <form onSubmit={handleAddCustomer}>
+              <div className="form-item">
+                <label htmlFor="firstName">First Name:</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={customer.firstName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-item">
+                <label htmlFor="lastName">Last Name:</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={customer.lastName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-item">
+                <label htmlFor="address">Address:</label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  value={customer.address}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-item">
+                <label htmlFor="phone">Phone:</label>
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  value={customer.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-item">
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={customer.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <button type="submit" className="form-button">
+                Add
+              </button>
+            </form>
+          </div>
+        </Drawer>
+      </div>
 
       <div>
         <Drawer
