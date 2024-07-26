@@ -36,6 +36,11 @@ const ShopRegister = () => {
   console.log("hasCompany", hasCompany);
   if (hasCompany) {
     console.log("companyData", companyData);
+import React from "react";
+import "./ShopRegister.css";
+const ShopRegister = () => {
+
+  if (hasCompany) {
     return (
       <div className="newshop-container">
         <div className="newshop-head">
@@ -67,6 +72,14 @@ const ShopRegister = () => {
           <button type="submit" onClick={handleContinue}>
             Continue
           </button>
+          <select id="shopname" name="shopname" required>
+            <option value="shop1">Shop 1</option>
+            <option value="shop2">Shop 2</option>
+            <option value="shop3">Shop 3</option>
+            <option value="shop4">Shop 4</option>
+          </select>
+
+          <button type="submit">Continue</button>
         </div>
       </div>
     );
