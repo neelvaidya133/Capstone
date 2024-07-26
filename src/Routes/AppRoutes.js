@@ -7,6 +7,10 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import LoginPage from "../Pages/LoginPage/LoginPage";
 
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import ShopRegister from "../Pages/NewShop/ShopRegister";
+import LoginPage from "../Pages/LoginPage/LoginPage";
+import Signup from "../Pages/Signup/Signup";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -18,6 +22,7 @@ const AppRoutes = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/registerShop" element={<ShopRegister />} />
       </Route>
+      
     </Routes>
   );
 };
