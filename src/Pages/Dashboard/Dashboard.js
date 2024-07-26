@@ -1,11 +1,25 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
+
+import Cookies from "js-cookie";
+import GetPrices from "../../graphql/Query/GetPrices";
+import CustomerTable from "../../components/CustomerTable/CustomerTable";
+import Drawer from "../../components/Drawer/Drawer";
+import GetCustomerByCompanyId from "../../graphql/Query/GetAllCustomer";
+
 import CustomerTable from "../../components/CustomerTable/CustomerTable";
 import OrderTable from "../../components/OrderTable/OrderTable";
+
 const Dashboard = () => {
   const [activeMenu, setActiveMenu] = useState("");
   const [activeSubmenu, setActiveSubmenu] = useState("");
   const [tableContent, setTableContent] = useState("orders");
+
+  const companyId = parseInt(Cookies.get("shopId"));
+
+  const { customers, customerLoading, customerError } =
+    GetCustomerByCompanyId(companyId);
+
 
   const data = [
     {
@@ -54,6 +68,7 @@ const Dashboard = () => {
         <nav className="sidebar">
           <ul>
             <li>
+              <div onClick={() => handleSubmenuClick("orders")}>Orders</div>
               <div onClick={() => handleMenuClick("orders")}>Orders</div>
               {activeMenu === "orders" && (
                 <ul className="submenu">
@@ -68,6 +83,12 @@ const Dashboard = () => {
 
             <li onClick={() => handleSubmenuClick("Customers")}>Customers</li>
 
+            <li>Prices</li>
+          </ul>
+        </nav>
+
+        {tableContent === "Customers" && (
+          <CustomerTable tableContent={tableContent} tableData={customers} />
             <li onClick={() => handleSubmenuClick("prices")}>Prices</li>
           </ul>
         </nav>
