@@ -80,48 +80,75 @@ const Signup = () => {
       <div className="signup-right-part">
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" value={name}
-            onChange={(e) => setName(e.target.value)} // Updating the name state with the help of onChange 
-            /> 
-            {/* If error exists for the name, then it will be displayed */}
-            {errors.name && <p className="signup-error-msg">{errors.name}</p>}
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            value={name}
+            onChange={(e) => setName(e.target.value)} // Updating the name state with the help of onChange
+          />
+          {/* If error exists for the name, then it will be displayed */}
+          {errors.name && <p className="signup-error-msg">{errors.name}</p>}
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address"  value={email}
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            value={email}
             onChange={(e) => setEmail(e.target.value)} // Updating the email state with the help of onChange
-            />
-            {/* If error exists for the email address, then it will be displayed */}
-            {errors.email && <p className="signup-error-msg">{errors.email}</p>}
+          />
+          {/* If error exists for the email address, then it will be displayed */}
+          {errors.email && <p className="signup-error-msg">{errors.email}</p>}
 
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" value={password}
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)} // Updating the password state with the help of onChange
-            />
-            {/* If error exists for the password, then it will be displayed */}
-            {errors.password && <p className="signup-error-msg">{errors.password}</p>}
+          />
+          {/* If error exists for the password, then it will be displayed */}
+          {errors.password && (
+            <p className="signup-error-msg">{errors.password}</p>
+          )}
 
-
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Enter your password again"  value={confirmPassword}
+          <label for="confirm-password">Confirm Password</label>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            placeholder="Enter your password again"
+            value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)} // Updating the confirm password state with the help of onChange
-            />
-            {/* If error exists for the confirm password, then it will be displayed */}
-            {errors.confirmPassword && <p className="signup-error-msg">{errors.confirmPassword}</p>}
+          />
+          {/* If error exists for the confirm password, then it will be displayed */}
+          {errors.confirmPassword && (
+            <p className="signup-error-msg">{errors.confirmPassword}</p>
+          )}
 
-            <label for="mobile">Mobile Number</label>
-            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" value={mobile}
+          <label for="mobile">Mobile Number</label>
+          <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            placeholder="Enter your mobile number"
+            value={mobile}
             onChange={(e) => setMobile(e.target.value)} // Updating the mobile state with the help of onChange
-            />
-            {/* If error exists for the mobile number, then it will be displayed */}
-            {errors.mobile && <p className="signup-error-msg">{errors.mobile}</p>}
+          />
+          {/* If error exists for the mobile number, then it will be displayed */}
+          {errors.mobile && <p className="signup-error-msg">{errors.mobile}</p>}
 
-            <button type="submit">Sign Up</button>
-          </form>
-          <div className="signup-login-text">
-            Or, Already have an account? <Link to="/">Log In Now!!</Link>
-          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+        <div className="signup-login-text">
+          Or, Already have an account? <Link to="/">Log In Now!!</Link>
+        </div>
       </div>
     </div>
   );

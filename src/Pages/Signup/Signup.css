@@ -1,7 +1,9 @@
 .signup-content {
   display: flex;
   background-color: #b5d3ef;
-  padding: 20px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup-left-part {
@@ -64,11 +66,4 @@
 
 .signup-login-text a:hover {
   color: #0056b3;
-}
-  
-.signup-error-msg {
-  color: red;
-  font-size: 14px;
-  margin-top: -12px;
-  margin-bottom: 5px;
 }

@@ -14,13 +14,11 @@ const httpLink = new HttpLink({
 });
 
 const authLink = new ApolloLink((operation, forward) => {
-  console.log("operation", operation);
   if (
     operation.operationName !== "Signin" &&
     operation.operationName !== "Signup"
   ) {
     if (!Cookies.get("jwtToken")) {
-      console.log("Redirecting to login");
       window.location.href = "/";
     }
     const token = Cookies.get("jwtToken");
