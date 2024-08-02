@@ -75,12 +75,12 @@ const Signup = () => {
   return (
     <div className="signup-content">
       <div className="signup-left-part">
-        <img src={SignupImage} alt="signup" width={400} height={400} />
+        <img src={SignupImage} alt="signup" />
       </div>
       <div className="signup-right-part">
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-          <label for="name">Name</label>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
@@ -92,7 +92,7 @@ const Signup = () => {
           {/* If error exists for the name, then it will be displayed */}
           {errors.name && <p className="signup-error-msg">{errors.name}</p>}
 
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
@@ -104,7 +104,7 @@ const Signup = () => {
           {/* If error exists for the email address, then it will be displayed */}
           {errors.email && <p className="signup-error-msg">{errors.email}</p>}
 
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -118,7 +118,7 @@ const Signup = () => {
             <p className="signup-error-msg">{errors.password}</p>
           )}
 
-          <label for="confirm-password">Confirm Password</label>
+          <label htmlFor="confirm-password">Confirm Password</label>
           <input
             type="password"
             id="confirm-password"
@@ -132,7 +132,7 @@ const Signup = () => {
             <p className="signup-error-msg">{errors.confirmPassword}</p>
           )}
 
-          <label for="mobile">Mobile Number</label>
+          <label htmlFor="mobile">Mobile Number</label>
           <input
             type="tel"
             id="mobile"
