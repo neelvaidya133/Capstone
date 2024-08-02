@@ -3,15 +3,6 @@ import "./Dashboard.css";
 import Cookies from "js-cookie";
 import GetPrices from "../../graphql/Query/GetPrices";
 import CustomerTable from "../../components/CustomerTable/CustomerTable";
-<<<<<<< HEAD
-import OrderTable from "../../components/OrderTable/OrderTable";
-import Drawer from "../../components/Drawer/Drawer";
-import GetAllOrders from "../../graphql/Query/GetAllOrders";
-import GetCustomerByCompanyId from "../../graphql/Query/GetAllCustomer";
-
-import CustomerTable from "../../components/CustomerTable/CustomerTable";
-=======
->>>>>>> 77f05dfa66da2d33b144c84cd7c062a2354fdfc6
 import OrderTable from "../../components/OrderTable/OrderTable";
 import Drawer from "../../components/Drawer/Drawer";
 import GetAllOrders from "../../graphql/Query/GetAllOrders";
@@ -33,10 +24,6 @@ const Dashboard = () => {
 
   const { customers, customerLoading, customerError } =
     GetCustomerByCompanyId(companyId);
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
   const data = [
     {
@@ -62,9 +49,7 @@ const Dashboard = () => {
       orderStatus: "completed",
     },
   ];
->>>>>>> cc70347177e9e2c3be8ec4b2a7f3eceb6cb7166a
-=======
->>>>>>> 77f05dfa66da2d33b144c84cd7c062a2354fdfc6
+
   const handleMenuClick = (menu) => {
     setActiveMenu(activeMenu === menu ? "" : menu);
   };
@@ -96,18 +81,6 @@ const Dashboard = () => {
             <li>Prices</li>
           </ul>
         </nav>
-<<<<<<< HEAD
-        {tableContent === "orders" && (
-          <OrderTable tableContent={tableContent} tableData={allOrders} />
-        )}
-
-        {tableContent === "Customers" && (
-          <CustomerTable tableContent={tableContent} tableData={customers} />
-            <li onClick={() => handleSubmenuClick("prices")}>Prices</li>
-          </ul>
-        </nav>
-=======
->>>>>>> 77f05dfa66da2d33b144c84cd7c062a2354fdfc6
         {tableContent === "orders" && (
           <OrderTable tableContent={tableContent} tableData={allOrders} />
         )}
