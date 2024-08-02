@@ -61,7 +61,7 @@ const LoginPage = (props) => {
   return (
     <div className="login-content">
       <div className="login-left-part">
-        <img src={LoginImage} alt="login" width={400} height={400} />
+        <img src={LoginImage} alt="login" />
       </div>
       <div className="login-right-part">
         <h1>Welcome to Tailor's Data</h1>
