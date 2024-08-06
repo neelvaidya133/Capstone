@@ -7,6 +7,8 @@ import OrderTable from "../../components/OrderTable/OrderTable";
 import Drawer from "../../components/Drawer/Drawer";
 import GetAllOrders from "../../graphql/Query/GetAllOrders";
 import GetCustomerByCompanyId from "../../graphql/Query/GetAllCustomer";
+import ShopDetails from "../../components/ShopDetails/ShopDetails";
+
 const Dashboard = () => {
   const [activeMenu, setActiveMenu] = useState("");
   const [activeSubmenu, setActiveSubmenu] = useState("");
@@ -54,6 +56,8 @@ const Dashboard = () => {
             <li onClick={() => handleSubmenuClick("Customers")}>Customers</li>
 
             <li>Prices</li>
+
+            <li onClick={() => handleSubmenuClick("ShopDetails")}>Shop Details</li>
           </ul>
         </nav>
         {tableContent === "orders" && (
@@ -63,6 +67,8 @@ const Dashboard = () => {
         {tableContent === "Customers" && (
           <CustomerTable tableContent={tableContent} tableData={customers} />
         )}
+
+        {tableContent === "ShopDetails" && <ShopDetails />}
       </div>
     </div>
   );
