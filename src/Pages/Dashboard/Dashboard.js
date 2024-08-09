@@ -7,11 +7,13 @@ import OrderTable from "../../components/OrderTable/OrderTable";
 import Drawer from "../../components/Drawer/Drawer";
 import GetAllOrders from "../../graphql/Query/GetAllOrders";
 import GetCustomerByCompanyId from "../../graphql/Query/GetAllCustomer";
+import Prices from "../../components/Prices/Prices";
 const Dashboard = () => {
   const [activeMenu, setActiveMenu] = useState("");
   const [activeSubmenu, setActiveSubmenu] = useState("");
   const [tableContent, setTableContent] = useState("orders");
   const companyId = parseInt(Cookies.get("shopId"));
+  const CompnayPrices = GetPrices(companyId);
 
   const shopInfo = Cookies.get("shopName");
   const {
@@ -78,7 +80,7 @@ const Dashboard = () => {
 
             <li onClick={() => handleSubmenuClick("Customers")}>Customers</li>
 
-            <li>Prices</li>
+            <li onClick={() => handleSubmenuClick("Prices")}>Prices</li>
           </ul>
         </nav>
         {tableContent === "orders" && (
@@ -88,6 +90,8 @@ const Dashboard = () => {
         {tableContent === "Customers" && (
           <CustomerTable tableContent={tableContent} tableData={customers} />
         )}
+
+        {tableContent === "Prices" && <Prices price={CompnayPrices} />}
       </div>
     </div>
   );
