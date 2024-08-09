@@ -8,6 +8,7 @@ import Drawer from "../../components/Drawer/Drawer";
 import GetAllOrders from "../../graphql/Query/GetAllOrders";
 import GetCustomerByCompanyId from "../../graphql/Query/GetAllCustomer";
 import Prices from "../../components/Prices/Prices";
+import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const [activeMenu, setActiveMenu] = useState("");
   const [activeSubmenu, setActiveSubmenu] = useState("");
@@ -15,6 +16,7 @@ const Dashboard = () => {
   const companyId = parseInt(Cookies.get("shopId"));
   const CompnayPrices = GetPrices(companyId);
 
+  const navigate = useNavigate();
   const shopInfo = Cookies.get("shopName");
   const {
     allOrders,
@@ -52,6 +54,13 @@ const Dashboard = () => {
     },
   ];
 
+  const handleLogout = () => {
+    Cookies.remove("jwtToken");
+    Cookies.remove("shopId");
+    Cookies.remove("shopName");
+    Cookies.remove("shopAddress");
+    navigate("/");
+  };
   const handleMenuClick = (menu) => {
     setActiveMenu(activeMenu === menu ? "" : menu);
   };
@@ -69,7 +78,9 @@ const Dashboard = () => {
     <div className="dashboard">
       <header className="header">
         <div className="logo">Shop Name</div>
-        <button className="logout">Logout</button>
+        <button className="logout" onClick={handleLogout}>
+          Logout
+        </button>
       </header>
       <div className="container">
         <nav className="sidebar">
