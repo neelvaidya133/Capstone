@@ -8,12 +8,15 @@ import Drawer from "../../components/Drawer/Drawer";
 import GetAllOrders from "../../graphql/Query/GetAllOrders";
 import GetCustomerByCompanyId from "../../graphql/Query/GetAllCustomer";
 import ShopDetails from "../../components/ShopDetails/ShopDetails";
+import AccountDetails from "../../components/AccountDetails/AccountDetails";
 
 const Dashboard = () => {
   const [activeMenu, setActiveMenu] = useState("");
   const [activeSubmenu, setActiveSubmenu] = useState("");
   const [tableContent, setTableContent] = useState("orders");
   const companyId = parseInt(Cookies.get("shopId"));
+  const email = Cookies.get("email");
+  const password = Cookies.get("password");
 
   const shopInfo = Cookies.get("shopName");
   const {
@@ -58,6 +61,8 @@ const Dashboard = () => {
             <li>Prices</li>
 
             <li onClick={() => handleSubmenuClick("ShopDetails")}>Shop Details</li>
+
+            <li onClick={() => handleSubmenuClick("AccountDetails")}>Account Details</li>
           </ul>
         </nav>
         {tableContent === "orders" && (
@@ -69,6 +74,8 @@ const Dashboard = () => {
         )}
 
         {tableContent === "ShopDetails" && <ShopDetails />}
+
+        {tableContent === "AccountDetails" && <AccountDetails email={email} password={password} />}
       </div>
     </div>
   );

@@ -28,6 +28,9 @@ const LoginPage = (props) => {
 
         const decoded = jwtDecode(signin.jwtToken);
         Cookies.set("user_id", JSON.stringify(decoded.user_id));
+        // storing the email address & password of the user account in a cookies
+        Cookies.set("email", email);
+        Cookies.set("password", password);
 
         navigate("/registerShop");
       } else {
